@@ -1,27 +1,28 @@
 # tgbot
 
+[![CI](https://github.com/cloudapp3/tgbot/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/cloudapp3/tgbot/actions/workflows/ci.yml)
+[![Go Version](https://img.shields.io/badge/go-1.22%2B-00ADD8?logo=go)](https://go.dev/)
+[![Go Reference](https://pkg.go.dev/badge/github.com/cloudapp3/tgbot.svg)](https://pkg.go.dev/github.com/cloudapp3/tgbot)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/cloudapp3/tgbot/blob/master/LICENSE)
+
 [English](../../README.md) | [简体中文](./README.zh-CN.md) | [Español](./README.es.md) | [日本語](./README.ja.md)
 
-一个轻量级的 Go Telegram Bot API SDK，提供完整的更新路由、Webhook 处理支持，以及简洁、适合生产环境的抽象层。
+轻量、强类型、零运行时依赖的 Go Telegram Bot API SDK。
 
-## 特性
+`tgbot` 是一个开源 Go SDK，用于构建 Telegram Bot，提供简洁抽象、完整的 Bot API 覆盖、强类型 union 解码、Webhook 支持，以及适合生产环境的长轮询能力。
 
-- 仓库内已包含对 Telegram Bot API method/type 的完整覆盖，并可对照官方文档校验
-- 支持 Telegram 多态字段/结果的强类型 union 解码
+## 为什么选择 tgbot？
+
+- 完整覆盖 Telegram Bot API 的方法与类型
+- 为 Telegram 多态字段和结果提供强类型 union 解码
 - 运行时零第三方依赖，仅使用标准库
 - 提供文件上传辅助能力，支持 `file_id`、URL、本地路径和 `io.Reader`
-- 基于 `GetUpdates` 提供异步长轮询能力，支持基于 channel 的事件订阅、`Unsubscribe()` 和可选的非阻塞分发
-- 在 `ext` 中提供类似 PTB 的路由层：
+- 提供基于 channel 的异步长轮询，支持 `Unsubscribe()` 和可选的非阻塞分发
+- 在 `ext` 中提供类似 PTB 的路由层，用于：
   - `Application`
   - `Handler`
   - `Filter`
   - webhook `http.Handler`
-
-## 安装
-
-```bash
-go get github.com/cloudapp3/tgbot
-```
 
 ## 快速开始
 
@@ -49,6 +50,12 @@ func main() {
         log.Fatal(err)
     }
 }
+```
+
+## 安装
+
+```bash
+go get github.com/cloudapp3/tgbot
 ```
 
 ## Webhook 路由（`ext`）

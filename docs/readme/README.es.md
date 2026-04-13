@@ -1,27 +1,28 @@
 # tgbot
 
+[![CI](https://github.com/cloudapp3/tgbot/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/cloudapp3/tgbot/actions/workflows/ci.yml)
+[![Go Version](https://img.shields.io/badge/go-1.22%2B-00ADD8?logo=go)](https://go.dev/)
+[![Go Reference](https://pkg.go.dev/badge/github.com/cloudapp3/tgbot.svg)](https://pkg.go.dev/github.com/cloudapp3/tgbot)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/cloudapp3/tgbot/blob/master/LICENSE)
+
 [English](../../README.md) | [简体中文](./README.zh-CN.md) | [Español](./README.es.md) | [日本語](./README.ja.md)
 
-Un SDK ligero de Telegram Bot API para Go con enrutamiento completo de updates, soporte para webhooks y abstracciones limpias listas para producción.
+Un SDK ligero y fuertemente tipado de Telegram Bot API para Go, sin dependencias de ejecución de terceros.
 
-## Características
+`tgbot` es un SDK open source de Go para construir bots de Telegram con abstracciones limpias, cobertura completa de Bot API, decodificación tipada de unions, soporte para webhooks y long polling listo para producción.
 
-- Cobertura completa de métodos y tipos de Telegram Bot API incluida en este repositorio, verificada contra la documentación oficial
+## ¿Por qué tgbot?
+
+- Cobertura completa de métodos y tipos de Telegram Bot API
 - Decodificación tipada de unions para campos y resultados polimórficos de Telegram
 - Cero dependencias de runtime de terceros; solo usa la biblioteca estándar
-- Helpers para subida de archivos (`file_id`, URL, ruta local, `io.Reader`)
-- Helper de long polling asíncrono con suscripciones basadas en channels, `Unsubscribe()` y despacho no bloqueante opcional sobre `GetUpdates`
-- Capa de enrutamiento estilo PTB en `ext`:
+- Helpers de subida de archivos para `file_id`, URL, ruta local e `io.Reader`
+- Long polling asíncrono con suscripciones basadas en channels, `Unsubscribe()` y despacho no bloqueante opcional
+- Capa de enrutamiento estilo PTB en `ext` para:
   - `Application`
   - `Handler`
   - `Filter`
   - webhook `http.Handler`
-
-## Instalación
-
-```bash
-go get github.com/cloudapp3/tgbot
-```
 
 ## Inicio Rápido
 
@@ -49,6 +50,12 @@ func main() {
         log.Fatal(err)
     }
 }
+```
+
+## Instalación
+
+```bash
+go get github.com/cloudapp3/tgbot
 ```
 
 ## Enrutamiento Webhook (`ext`)

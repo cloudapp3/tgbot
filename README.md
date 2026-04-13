@@ -1,27 +1,28 @@
 # tgbot
 
+[![CI](https://github.com/cloudapp3/tgbot/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/cloudapp3/tgbot/actions/workflows/ci.yml)
+[![Go Version](https://img.shields.io/badge/go-1.22%2B-00ADD8?logo=go)](https://go.dev/)
+[![Go Reference](https://pkg.go.dev/badge/github.com/cloudapp3/tgbot.svg)](https://pkg.go.dev/github.com/cloudapp3/tgbot)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/cloudapp3/tgbot/blob/master/LICENSE)
+
 [English](./README.md) | [简体中文](./docs/readme/README.zh-CN.md) | [Español](./docs/readme/README.es.md) | [日本語](./docs/readme/README.ja.md)
 
-A lightweight Go Telegram Bot API SDK with full update routing, webhook handler support, and clean, production-friendly abstractions.
+A lightweight, strongly typed Telegram Bot API SDK for Go with zero third-party runtime dependencies.
 
-## Features
+`tgbot` is an open-source Go SDK for building Telegram bots with clean abstractions, full Bot API coverage, typed union decoding, webhook support, and production-friendly long polling.
 
-- Full Telegram Bot API method/type coverage included in this repository, verified against the official docs
-- Typed union decoding for Telegram polymorphic fields/results
+## Why tgbot?
+
+- Full Telegram Bot API method and type coverage
+- Strongly typed union decoding for polymorphic Telegram fields and results
 - Zero third-party runtime dependencies (standard library only)
-- File upload helpers (`file_id`, URL, local path, `io.Reader`)
-- Async long-polling helper with channel-based subscriptions, `Unsubscribe()`, and optional non-blocking dispatch on top of `GetUpdates`
-- PTB-style routing layer in `ext`:
+- File upload helpers for `file_id`, URL, local path, and `io.Reader`
+- Async long polling with channel-based subscriptions, `Unsubscribe()`, and optional non-blocking dispatch
+- PTB-style routing layer in `ext` for:
   - `Application`
   - `Handler`
   - `Filter`
   - webhook `http.Handler`
-
-## Install
-
-```bash
-go get github.com/cloudapp3/tgbot
-```
 
 ## Quick Start
 
@@ -49,6 +50,12 @@ func main() {
         log.Fatal(err)
     }
 }
+```
+
+## Install
+
+```bash
+go get github.com/cloudapp3/tgbot
 ```
 
 ## Webhook Routing (`ext`)

@@ -1,27 +1,28 @@
 # tgbot
 
+[![CI](https://github.com/cloudapp3/tgbot/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/cloudapp3/tgbot/actions/workflows/ci.yml)
+[![Go Version](https://img.shields.io/badge/go-1.22%2B-00ADD8?logo=go)](https://go.dev/)
+[![Go Reference](https://pkg.go.dev/badge/github.com/cloudapp3/tgbot.svg)](https://pkg.go.dev/github.com/cloudapp3/tgbot)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/cloudapp3/tgbot/blob/master/LICENSE)
+
 [English](../../README.md) | [简体中文](./README.zh-CN.md) | [Español](./README.es.md) | [日本語](./README.ja.md)
 
-`tgbot` は、完全な update ルーティング、Webhook ハンドラー対応、本番利用しやすいクリーンな抽象化を備えた軽量な Go 向け Telegram Bot API SDK です。
+軽量・型安全・ランタイム外部依存なしの Go 向け Telegram Bot API SDK。
 
-## 特徴
+`tgbot` は、クリーンな抽象化、完全な Bot API カバレッジ、型安全な union デコード、Webhook 対応、そして本番運用しやすいロングポーリングを備えた、Telegram Bot 開発向けのオープンソース Go SDK です。
 
-- このリポジトリに Telegram Bot API の method/type を網羅し、公式ドキュメントとの照合も可能
-- Telegram の多態フィールド・結果に対する型付き union デコードをサポート
+## なぜ tgbot なのか？
+
+- Telegram Bot API のメソッドと型を幅広くカバー
+- Telegram の多態フィールドと結果に対する型安全な union デコードをサポート
 - 実行時のサードパーティ依存なし、標準ライブラリのみ使用
 - ファイルアップロード用ヘルパー（`file_id`、URL、ローカルパス、`io.Reader`）を提供
-- `GetUpdates` の上に channel ベースの購読、`Unsubscribe()`、任意の非ブロッキング分配を備えた非同期ロングポーリングヘルパーを提供
-- `ext` に PTB 風のルーティング層を提供:
+- channel ベースの購読、`Unsubscribe()`、任意の非ブロッキング分配を備えた非同期ロングポーリングを提供
+- `ext` に PTB 風のルーティング層を提供し、以下を扱えます:
   - `Application`
   - `Handler`
   - `Filter`
   - webhook `http.Handler`
-
-## インストール
-
-```bash
-go get github.com/cloudapp3/tgbot
-```
 
 ## クイックスタート
 
@@ -49,6 +50,12 @@ func main() {
         log.Fatal(err)
     }
 }
+```
+
+## インストール
+
+```bash
+go get github.com/cloudapp3/tgbot
 ```
 
 ## Webhook ルーティング（`ext`）
